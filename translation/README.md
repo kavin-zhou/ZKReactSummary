@@ -1,5 +1,5 @@
 ##React的思想
-翻译自[Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
+翻译自官方文档[Thinking in React](https://facebook.github.io/react/docs/thinking-in-react.html)
 
 在我们看来，React是使用JavaScript构建大型，快速的Web应用程序的首要方式。 它在我们的Facebook和Instagram上的扩展非常好。
 React的重要作用之一就是, 构建应用的时候怎么去思考。 在本文档中，我们将向您介绍使用React构建可搜索的产品数据表的思考过程。<br />
@@ -20,7 +20,7 @@ JSON的API如下:
   {category: "Electronics", price: "$199.99", stocked: true, name: "Nexus 7"}
 ];
 ```
-####第一步: 将UI分离成组件层次
+###第一步: 将UI分离成组件层次
 你要做的第一件事是开始绘制设计稿中的每个组件（和子组件），并给它们所有的名字。 如果你正在与一个设计师工作，他们可能已经这样做，所以去跟他们说他们的Photoshop图层名称可能最终是你的React组件的名称！
 但是你怎么知道怎么拆分组件？ 只需使用相同的技术来决定是否应该创建一个新的函数或对象即可。 一种技术是单一指责原则，即一个组件应该只做一件事。 如果它最终变得庞大，它应该被分解成更小的子组件。
 
@@ -35,7 +35,8 @@ JSON的API如下:
 * ProductCategoryRow (turquoise): displays a heading for each category <br />
 * ProductRow (red): displays a row for each product <br />
 ```
-看看ProductTable，你会看到表头（包含“name”和“price”标签）不是自己的组件。 这是一个个人偏好的问题。 对于这个例子，我们把它作为ProductTable的一部分，因为它是渲染数据收集的一部分，这是ProductTable的责任。 然而，如果这个头部变得复杂（如果我们添加用于排序的可用性），那么使它自己的ProductTableHeader组件会更好一些。
+看看ProductTable，你会看到表头（包含“name”和“price”标签）不是自己的组件。 这是一个个人偏好的问题。 对于这个例子，我们把它作为ProductTable的一部分，因为它是渲染数据收集的一部分，这是ProductTable的责任。 
+然而，如果这个头部变得复杂（如果我们添加用于排序的可用性），那么使它自己的`ProductTableHeader`组件会更好一些。
 下面就是结构层次:
 ```
 * FilterableProductTable
@@ -45,11 +46,13 @@ JSON的API如下:
     * ProductRow
 ```
 
-####第二步: 用React构建一个静态版本
+###第二步: 用React构建一个静态版本
 ```
 var ProductCategoryRow = React.createClass({
   render: function() {
-    return (<tr><th colSpan="2">{this.props.category}</th></tr>);
+    return (<tr>
+        <th colSpan="2">{this.props.category}</th>
+    </tr>);
   }
 });
 
@@ -150,7 +153,7 @@ ReactDOM.render(
 React中有两种类型的“模型”数据：props和state。 重要的是要了解两者之间的区别; 
 如果你不确定有什么区别, 请参阅[state文档](https://facebook.github.io/react/docs/state-and-lifecycle.html)
 
-###第三步: 识别 UI `state`的最小（但完整）表示
+###第三步: 确定 UI `state`的最小（但完整）表示
 要使你的UI交互，你需要能够触发对基础数据模型的更改。 React的`state`让交互变得简单。
 
 要正确构建您的应用程序，您首先需要考虑是: 应用程序需要的最小可变状态集。 这里的关键是：不要重复。 
@@ -174,12 +177,14 @@ React中有两种类型的“模型”数据：props和state。 重要的是要�
 * 用户在搜索框输入的文字
 * 选择框的值
 
-### 第四步: 确定`state`的位置
+###第四步: 确定`state`的位置
 
 ```
 var ProductCategoryRow = React.createClass({
   render: function() {
-    return (<tr><th colSpan="2">{this.props.category}</th></tr>);
+    return (<tr>
+        <th colSpan="2">{this.props.category}</th>
+    </tr>);
   }
 });
 
@@ -283,20 +288,20 @@ ReactDOM.render(
 );
 ```
 
-OK，我们已经确定了什么是最小的应用`state`集。 接下来，我们需要确定哪个组件的`state`突变, 或拥有此`state`。
+OK，我们已经确定了什么是最小的应用`state`集。 接下来，我们需要确定哪个组件的`state`会突变, 哪个组件应该拥有此`state`。
 
 记住：React的所有层次的内容都是单向数据流传输。 可能不是立即清楚哪个组件应该拥有什么`state`。 
 对于新手来说，这通常是最具挑战性的部分，因此请按照以下步骤了解：
 
 对于应用中所有的state:
-* 标识出基于这个`state`去渲染的所有组件
-* 找到一个公共所有者组件(在结构层次中位于所有需要这个`state`的组件之上的单个组件)
-* 公共所有者或层次结构中较高的另一个组件应该拥有该`state`
-* 如果你找不到一个组件拥有状态是有意义的，创建一个保持状态的新组件，并将其添加到公共所有者组件上层结构的某个位置。
+* 先确定出基于这个`state`去渲染的所有组件
+* 找到一个公共所有者组件(在结构层次中位于所有需要基于这个`state`渲染的组件之上的单个组件)
+* 应该是公共所有者或层次结构中较高的另一个组件拥有该`state`
+* 如果你找不到一个组件拥有`state`是可行的，那就创建一个持有`state`的新组件，并将其添加到公共所有者组件上层结构的某个位置。
 
-让我们来运行一下这个策略：
+让我们根据上面的策略来确定示例程序的`state`的位置：
 
-* ProductTable需要根据状态过滤产品列表，搜索栏需要显示搜索文本和选中状态。
+* `ProductTable`需要根据状态过滤产品列表，搜索栏需要显示搜索文本和选中状态。
 * 公共所有者组件是`FilterableProductTable`
 * 过滤器文本(filter text)和检查值(checked value)放在`FilterableProductTable`是可行的.
 
@@ -439,7 +444,7 @@ ReactDOM.render(
 );
 ```
 
-到目前为止，我们已经构建了一个应用程序，通过`props`和`state`沿着层次结构向下的函数正确呈现。 
+到目前为止，我们已经构建了一个应用程序，通过`props`和`state`沿着层次结构向下的函数正确执行。 
 现在是时候以其他方式支持数据流：层次结构中深层的表单form组件需要更新`FilterableProductTable`中的`state`。
 
 React的单向数据流让我们很明晰地理解程序如何工作，但它需要比传统的双向数据绑定模式更多的`typing`。
