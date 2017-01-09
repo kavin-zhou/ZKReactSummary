@@ -10,7 +10,7 @@ React的重要作用之一就是, 构建应用的时候怎么去思考。 在本
 ![](https://github.com/dev-zhoukang/ZKReactSummary/blob/master/imgs/img-1.png?raw=true)
 
 JSON的API如下:
-```
+```js
 [
   {category: "Sporting Goods", price: "$49.99", stocked: true, name: "Football"},
   {category: "Sporting Goods", price: "$9.99", stocked: true, name: "Baseball"},
@@ -179,7 +179,7 @@ React中有两种类型的“模型”数据：props和state。 重要的是要�
 
 ###第四步: 确定`state`的位置
 
-```
+```jsx
 var ProductCategoryRow = React.createClass({
   render: function() {
     return (<tr>
@@ -312,7 +312,7 @@ OK，我们已经确定了什么是最小的应用`state`集。 接下来，我�
 
 ###第五步: 添加逆向数据流
 
-```
+```jsx
 var ProductCategoryRow = React.createClass({
   render: function() {
     return (<tr><th colSpan="2">{this.props.category}</th></tr>);
