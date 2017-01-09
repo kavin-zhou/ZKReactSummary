@@ -9,3 +9,4 @@
 6. xujinyang的[总结列表](https://github.com/xujinyang/react-native-android-guide)(里面有redux等相关内容)
 7. LeoMobileDeveloper的[总结列表](https://github.com/LeoMobileDeveloper/ReactNativeMaterials)
 8. 一篇该概括比较全的博文[关于 React Native，您想知道的都在这里了](https://my.oschina.net/osccreate/blog/778348)
+9. [Redux教程(https://github.com/react-guide/redux-tutorial-cn#redux-tutorial)
