@@ -6,7 +6,9 @@ React的重要作用之一就是, 构建应用的时候怎么去思考。 在本
 
 ###以一份设计稿开始
 假设你已经得到了一份JSON API文档和设计稿, 设计稿如下图:
+
 ![](https://github.com/dev-zhoukang/ZKReactSummary/blob/master/imgs/img-1.png?raw=true)
+
 JSON的API如下:
 ```
 [
@@ -26,18 +28,22 @@ JSON的API如下:
 
 ![](https://github.com/dev-zhoukang/ZKReactSummary/blob/master/imgs/img-2.png?raw=true)
 
+```
 * FilterableProductTable (orange): contains the entirety of the example <br />
 * SearchBar (blue): receives all user input <br />
 * ProductTable (green): displays and filters the data collection based on user input <br />
 * ProductCategoryRow (turquoise): displays a heading for each category <br />
 * ProductRow (red): displays a row for each product <br />
+```
 看看ProductTable，你会看到表头（包含“name”和“price”标签）不是自己的组件。 这是一个个人偏好的问题。 对于这个例子，我们把它作为ProductTable的一部分，因为它是渲染数据收集的一部分，这是ProductTable的责任。 然而，如果这个头部变得复杂（如果我们添加用于排序的可用性），那么使它自己的ProductTableHeader组件会更好一些。
 下面就是结构层次:
+```
 * FilterableProductTable
   * SearchBar
   * ProductTable
     * ProductCategoryRow
     * ProductRow
+```
 
 ####第二步: 用React构建一个基础版本
 ```
