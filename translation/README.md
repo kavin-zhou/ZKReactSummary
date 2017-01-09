@@ -6,7 +6,7 @@ React的重要作用之一就是, 构建应用的时候怎么去思考。 在本
 
 ###以一份设计稿开始
 假设你已经得到了一份JSON API文档和设计稿, 设计稿如下图:
-![](../imgs/img-1)
+![](https://github.com/dev-zhoukang/ZKReactSummary/blob/master/imgs/img-1.png?raw=true)
 JSON的API如下:
 ```
 [
@@ -24,7 +24,7 @@ JSON的API如下:
 
 由于经常向用户显示JSON数据模型，一定发现如果模型正确构建，UI（或者说组件结构）将会很好地映射。 这是因为UI和数据模型倾向于遵循相同的信息架构，这意味着将UI划分为组件的工作通常是很简单的。 只需根据一个数据模型的拆分组件即可。
 
-![](../imgs/img-2)
+![](https://github.com/dev-zhoukang/ZKReactSummary/blob/master/imgs/img-2.png?raw=true)
 
 * FilterableProductTable (orange): contains the entirety of the example <br />
 * SearchBar (blue): receives all user input <br />
