@@ -45,7 +45,7 @@ JSON的API如下:
     * ProductRow
 ```
 
-####第二步: 用React构建一个基础版本
+####第二步: 用React构建一个静态版本
 ```
 var ProductCategoryRow = React.createClass({
   render: function() {
@@ -135,3 +135,172 @@ ReactDOM.render(
   document.getElementById('container')
 );
 ```
+* 现在已经拥有了组件层次结构，现在是实现应用程序的时候了。 最简单的方法是构建一个版本，它接收您的数据模型并呈现UI，但没有交互性。 
+最好要解耦这些过程，因为构建静态版本需要大量的typing，没有thinking，添加交互性需要很多thinking，而不是很多typing。 我们看看为什么。
+* 要构建呈现您的数据模型的应用程序的静态版本，您需要构建可复用其他组件和使用`props`传递数据的组件。 `props`是将数据从父级传递到子级的一种方式。 如果你熟悉`state`的概念，不要使用`state`来构建这个静态版本。 
+因为`state`仅适用于交互性即随时间变化的数据。 由于这是一个静态版本的应用程序，所以你不需要`state`。
+* 关于构建顺序, 您可以构建自顶向下或自下而上。 也就是说，您可以从层次结构中的较高层（即从FilterableProductTable开始）或在其中较低的层（ProductRow）开始构建组件。 
+在更简单的例子中，通常应该从上到下构建，而在更大的项目中，更应该从底层向上构建应用和编写测试。
+* 在此步骤结束时，您将有一个用于呈现您的数据模型的可重用组件库。 组件将只有`render（）`方法，因为这是一个静态版本的应用程序。 层次结构顶部的组件（FilterableProductTable）将把您的数据模型作为`props`。 
+如果对基础数据模型进行更改并再次调用`ReactDOM.render（）`，则UI将更新。 很容易看到你的UI是如何更新的和更改的地方，因为没有什么复杂的。 React的**单向数据流**（也称为单向绑定）会保持模块化和快速化。
+
+如果在此步骤需要帮助，请参阅[React文档](https://facebook.github.io/react/docs/hello-world.html)。
+
+####一个简短的插曲：`Props` vs `State`
+React中有两种类型的“模型”数据：props和state。 重要的是要了解两者之间的区别; 
+如果你不确定有什么区别, 请参阅[state文档](https://facebook.github.io/react/docs/state-and-lifecycle.html)
+
+###第三步: 识别 UI `state`的最小（但完整）表示
+要使你的UI交互，你需要能够触发对基础数据模型的更改。 React的`state`让交互变得简单。
+
+要正确构建您的应用程序，您首先需要考虑是: 应用程序需要的最小可变状态集。 这里的关键是：不要重复。 
+确定您的App需要的`state`的是最精简的，其他能计算出来的变量就计算出来。 例如，如果您正在构建一个TODO列表，只需保留一个TODO项目的数组; 不要为计数保留单独的`state`变量。当渲染列表需要TODO计数时，只需取TODO项数组的长度即可。
+
+示例程序中所有需要的的数据如下:
+* 产品的原始列表 (The original list of products)
+* 用户在搜索框输入的文字 (The search text the user has entered)
+* 选择框的值 (The value of the checkbox)
+* 已过滤的产品列表 (The filtered list of products)
+
+让我们找出哪一个应该是用`state`管理。 只需询问每个数据的三个问题：
+1. 它是继承而来的`props`吗？ 如果是，它应该不是`state`。
+2. 它是一直不变的吗?  如果是，它应该不是`state`。
+3. 能通过其他的`state`或者`props`计算而来吗?  如果是，它应该不是`state`。
+
+经过分析, 原始的产品列表作为`props`传递，所以不是`state`。 搜索文本和复选框似乎是`state`，因为它们随时间变化，不能从任何计算。 
+最后，过滤的产品列表不是`state`，因为它可以通过将原始产品列表与复选框的搜索文本和值组合来计算。
+
+综上, 我们的state只有两项:
+* 用户在搜索框输入的文字
+* 选择框的值
+
+### 第四步: 确定`state`的位置
+
+```
+var ProductCategoryRow = React.createClass({
+  render: function() {
+    return (<tr><th colSpan="2">{this.props.category}</th></tr>);
+  }
+});
+
+var ProductRow = React.createClass({
+  render: function() {
+    var name = this.props.product.stocked ?
+      this.props.product.name :
+      <span style={{color: 'red'}}>
+        {this.props.product.name}
+      </span>;
+    return (
+      <tr>
+        <td>{name}</td>
+        <td>{this.props.product.price}</td>
+      </tr>
+    );
+  }
+});
+
+var ProductTable = React.createClass({
+  render: function() {
+    var rows = [];
+    var lastCategory = null;
+    this.props.products.forEach(function(product) {
+      if (product.name.indexOf(this.props.filterText) === -1 || (!product.stocked && this.props.inStockOnly)) {
+        return;
+      }
+      if (product.category !== lastCategory) {
+        rows.push(<ProductCategoryRow category={product.category} key={product.category} />);
+      }
+      rows.push(<ProductRow product={product} key={product.name} />);
+      lastCategory = product.category;
+    }.bind(this));
+    return (
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+          </tr>
+        </thead>
+        <tbody>{rows}</tbody>
+      </table>
+    );
+  }
+});
+
+var SearchBar = React.createClass({
+  render: function() {
+    return (
+      <form>
+        <input type="text" placeholder="Search..." value={this.props.filterText} />
+        <p>
+          <input type="checkbox" checked={this.props.inStockOnly} />
+          {' '}
+          Only show products in stock
+        </p>
+      </form>
+    );
+  }
+});
+
+var FilterableProductTable = React.createClass({
+  getInitialState: function() {
+    return {
+      filterText: '',
+      inStockOnly: false
+    };
+  },
+
+  render: function() {
+    return (
+      <div>
+        <SearchBar
+          filterText={this.state.filterText}
+          inStockOnly={this.state.inStockOnly}
+        />
+        <ProductTable
+          products={this.props.products}
+          filterText={this.state.filterText}
+          inStockOnly={this.state.inStockOnly}
+        />
+      </div>
+    );
+  }
+});
+
+
+var PRODUCTS = [
+  {category: 'Sporting Goods', price: '$49.99', stocked: true, name: 'Football'},
+  {category: 'Sporting Goods', price: '$9.99', stocked: true, name: 'Baseball'},
+  {category: 'Sporting Goods', price: '$29.99', stocked: false, name: 'Basketball'},
+  {category: 'Electronics', price: '$99.99', stocked: true, name: 'iPod Touch'},
+  {category: 'Electronics', price: '$399.99', stocked: false, name: 'iPhone 5'},
+  {category: 'Electronics', price: '$199.99', stocked: true, name: 'Nexus 7'}
+];
+
+ReactDOM.render(
+  <FilterableProductTable products={PRODUCTS} />,
+  document.getElementById('container')
+);
+```
+
+OK，我们已经确定了什么是最小的应用`state`集。 接下来，我们需要确定哪个组件的`state`突变, 或拥有此`state`。
+
+记住：React的所有层次的内容都是单向数据流传输。 可能不是立即清楚哪个组件应该拥有什么`state`。 
+对于新手来说，这通常是最具挑战性的部分，因此请按照以下步骤了解：
+
+对于应用中所有的state:
+* 标识出基于这个`state`去渲染的所有组件
+* 找到一个公共所有者组件(在结构层次中位于所有需要这个`state`的组件之上的单个组件)
+* 公共所有者或层次结构中较高的另一个组件应该拥有该`state`
+* 如果你找不到一个组件拥有状态是有意义的，创建一个保持状态的新组件，并将其添加到公共所有者组件上层结构的某个位置。
+
+让我们来运行一下这个策略：
+
+* ProductTable需要根据状态过滤产品列表，搜索栏需要显示搜索文本和选中状态。
+* 公共所有者组件是`FilterableProductTable`
+* 过滤器文本(filter text)和检查值(checked value)放在`FilterableProductTable`是可行的.
+
+所以我们决定我们的`state`放置在`FilterableProductTable`。 首先，将`getInitialState（）`方法添加到`FilterableProductTable`，返回`{filterText：''，inStockOnly：false}`以反映应用程序的初始状态。 
+然后，将`filterText`和`inStockOnly`传递给`ProductTable`和`SearchBar`作为`props`。 最后，使用这些`props`来过滤`ProductTable`中的rows，并在`SearchBar`中设置表单字段的值。
+
+你可以试着修改：将`filterText`设置为`“ball”`并刷新你的应用程序。 您将看到数据表已正确更新。
