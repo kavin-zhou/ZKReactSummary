@@ -47,7 +47,7 @@ JSON的API如下:
 ```
 
 ###第二步: 用React构建一个静态版本
-```
+```jsx
 var ProductCategoryRow = React.createClass({
   render: function() {
     return (<tr>
