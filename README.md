@@ -13,5 +13,6 @@
   * [React设计思想](https://github.com/react-guide/react-basic)
   * [Redux教程](https://github.com/react-guide/redux-tutorial-cn#redux-tutorial)
 10. 一篇比较好理解的 [TodoListDemo](https://github.com/TongchengQiu/TodoList-as-redux-demo)
-11. 基于 react + react-router + redux + webpack + ES6 + less 的完整项目, 地址在 [这里](https://github.com/bailicangdu/react-pxq)
+11. 基于 react + react-router + redux + webpack + ES6 + less 的完整项目, 对`React`和`Redux`, `Router`也解释的比较全, 
+地址在 [这里](https://github.com/bailicangdu/react-pxq)
   
