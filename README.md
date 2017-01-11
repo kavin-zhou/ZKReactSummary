@@ -23,5 +23,5 @@
 12. 关于ES6的语法
     * 阮一峰老师的开源书[ES6标准入门(第二版)] (http://es6.ruanyifeng.com/#docs/intro) , 感谢阮大大的开源精神.
     * 大名鼎鼎的JS高程设计作者Zakas老师也开源了ES6的语法书籍, [Understanding ECMAScript 6](https://leanpub.com/understandinges6/read)
-    本书的介绍的git地址在 [这里](https://github.com/nzakas/understandinges6)
+    本书的介绍的git地址在 [这里](https://github.com/nzakas/understandinges6), 
     当然, 你可以看 [中文译文](https://www.gitbook.com/book/oshotokill/understandinges6-simplified-chinese/details) , 感谢译者.
