@@ -1,6 +1,8 @@
 # ZKReactSummary
 总结关于React的知识, 主要是对react文档的一些翻译以及redux, react-native的一些总结
 
+###(一) 教程
+
 1. 笔者翻译了一篇关于 [React的思想](translation/README.md) 的文章, 翻译自英文文档.
 2. 刘一奇老师的相关资料
     * [React+Redux系列教程](https://github.com/lewis617/react-redux-tutorial)
@@ -15,17 +17,24 @@
     * [简明教程](https://github.com/kenberkeley/redux-simple-tutorial)
     * [进阶教程](https://github.com/kenberkeley/redux-simple-tutorial/blob/master/redux-advanced-tutorial.md)
     * 里面提到了一个babel出品的在线 ES6 => ES5 的网站, 不错值得分享. [传送门](http://babeljs.io/repl/) 
-4. xujinyang的 [总结列表](https://github.com/xujinyang/react-native-android-guide) (里面有redux等相关内容)
-5. LeoMobileDeveloper的 [总结列表](https://github.com/LeoMobileDeveloper/ReactNativeMaterials)
-6. 一篇该概括比较全的博文 [关于 React Native，您想知道的都在这里了](https://my.oschina.net/osccreate/blog/778348)
-7. [高质量的React相关文档和翻译](https://github.com/react-guide)
+5. xujinyang的 [总结列表](https://github.com/xujinyang/react-native-android-guide) (里面有redux等相关内容)
+6. LeoMobileDeveloper的 [总结列表](https://github.com/LeoMobileDeveloper/ReactNativeMaterials)
+7. 一篇该概括比较全的博文 [关于 React Native，您想知道的都在这里了](https://my.oschina.net/osccreate/blog/778348)
+8. [高质量的React相关文档和翻译](https://github.com/react-guide)
     * [React设计思想](https://github.com/react-guide/react-basic)
     * [Redux教程](https://github.com/react-guide/redux-tutorial-cn#redux-tutorial)
     * [Redux中文文档](https://github.com/camsong/redux-in-chinese)
-8. 一篇比较好理解的 [TodoListDemo](https://github.com/TongchengQiu/TodoList-as-redux-demo)
-9. 基于 react + react-router + redux + webpack + ES6 + less 的完整项目, 对`React`和`Redux`, `Router`也解释的比较全, 
+
+###(二) 实例
+
+1. 一篇比较好理解的 [TodoListDemo](https://github.com/TongchengQiu/TodoList-as-redux-demo)
+2. 基于 react + react-router + redux + webpack + ES6 + less 的完整项目, 对`React`和`Redux`, `Router`也解释的比较全, 
     地址在 [这里](https://github.com/bailicangdu/react-pxq)
-10. 关于ES6的语法
+3. 非常好的具有文字展示和评论功能的社区软件, 基于webpack + react + react-router + redux + less + flex.css + ES6 的React版cnode社区, [传送门](https://github.com/lzxb/react-cnode)
+
+###(三)语法
+
+1. 关于ES6的语法
     * 阮一峰老师的开源书[ES6标准入门(第二版)] (http://es6.ruanyifeng.com/#docs/intro) , 感谢阮大大的开源精神.
     * 大名鼎鼎的JS高程设计作者Zakas老师也开源了ES6的语法书籍, [Understanding ECMAScript 6](https://leanpub.com/understandinges6/read)
     本书的介绍的git地址在 [这里](https://github.com/nzakas/understandinges6), 
