@@ -24,6 +24,7 @@
     * [React设计思想](https://github.com/react-guide/react-basic)
     * [Redux教程](https://github.com/react-guide/redux-tutorial-cn#redux-tutorial)
     * [Redux中文文档](https://github.com/camsong/redux-in-chinese)
+9. 阿里的陈屹大大主创的知乎专栏 [pure render](https://zhuanlan.zhihu.com/purerender) 干货满满, 推荐多研究研究, 另外他编写的新书 [深入React技术栈](https://zhuanlan.zhihu.com/p/22516062?refer=purerender) 同样值得买来研究一番.  
 
 ###(二) 实例
 
