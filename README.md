@@ -24,7 +24,10 @@
     * [React设计思想](https://github.com/react-guide/react-basic)
     * [Redux教程](https://github.com/react-guide/redux-tutorial-cn#redux-tutorial)
     * [Redux中文文档](https://github.com/camsong/redux-in-chinese)
-9. 阿里的陈屹大大主创的知乎专栏 [pure render](https://zhuanlan.zhihu.com/purerender) 干货满满, 推荐多研究研究. 
+9. 知乎上关于 react 的话题:
+    * 阿里的陈屹大大主创的知乎专栏 [pure render](https://zhuanlan.zhihu.com/purerender) 干货满满, 推荐多研究研究.
+    * [理解 React，但不理解 Redux，该如何通俗易懂的理解 Redux？](https://www.zhihu.com/question/41312576)
+    * [看漫画，学 Redux](https://github.com/jasonslyvia/a-cartoon-intro-to-redux-cn)
 
 ###(二) 实例
 
