@@ -44,3 +44,4 @@
     * 大名鼎鼎的JS高程设计作者Zakas老师也开源了ES6的语法书籍, [Understanding ECMAScript 6](https://leanpub.com/understandinges6/read)
     本书的介绍的git地址在 [这里](https://github.com/nzakas/understandinges6), 
     当然, 你可以看 [中文译文](https://www.gitbook.com/book/oshotokill/understandinges6-simplified-chinese/details) , 感谢译者.
+2. 阮一峰老师推荐的一个语法规范的小册子, 有正反两个实例, 非常值得阅读. [语法简洁之道](https://github.com/ryanmcdermott/clean-code-javascript)
