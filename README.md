@@ -32,6 +32,7 @@
 2. 基于 react + react-router + redux + webpack + ES6 + less 的完整项目, 对`React`和`Redux`, `Router`也解释的比较全, 
     地址在 [这里](https://github.com/bailicangdu/react-pxq)
 3. 非常好的具有文字展示和评论功能的社区软件, 基于webpack + react + react-router + redux + less + flex.css + ES6 的React版cnode社区, [传送门](https://github.com/lzxb/react-cnode)
+4. 极简的 [Redux实例](./examples/simple-redux)
 
 ###(三)语法
 
