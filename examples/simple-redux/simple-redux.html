@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>极简 Redux Demo</title>
+    <script src="//cdn.bootcss.com/redux/3.5.2/redux.min.js"></script>
+</head>
+<body>
+
+<script>
+
+    /* 创建 Action 的函数 */
+    function inc() {
+        return {
+            type: 'INCREMENT'
+        }
+    }
+    function dec() {
+        return {
+            type: 'DECREMENT'
+        }
+    }
+
+    /* 传入 original state 和 action, 返回 new state */
+    function reducer(state, action) {
+
+        // 首次调用本函数初始化 state
+        state = state || { counter: 0 };
+
+        switch (action.type) {
+            case 'INCREMENT':
+                return { counter: state.counter + 1 };
+            case 'DECREMENT':
+                return { counter: state.counter - 1 };
+            default:
+                return state; // 注意: 无论何时都需要返回一个state, 否则就会变成 undefined
+        }
+    }
+
+    let store = Redux.createStore(reducer);
+    console.log(store.getState());
+
+    store.dispatch(inc());
+    console.log(store.getState());
+
+    store.dispatch(inc());
+    console.log(store.getState());
+
+    store.dispatch(dec());
+    console.log(store.getState());
+
+</script>
+
+</body>
+</html>
