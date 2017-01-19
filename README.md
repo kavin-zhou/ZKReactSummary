@@ -16,7 +16,6 @@
 4. 深入浅出的比较好的redux教程, [地址传送带](https://github.com/kenberkeley/redux-simple-tutorial)
     * [简明教程](https://github.com/kenberkeley/redux-simple-tutorial)
     * [进阶教程](https://github.com/kenberkeley/redux-simple-tutorial/blob/master/redux-advanced-tutorial.md)
-    * 里面提到了一个babel出品的在线 ES6 => ES5 的网站, 不错值得分享. [传送门](http://babeljs.io/repl/) 
 5. xujinyang的 [总结列表](https://github.com/xujinyang/react-native-android-guide) (里面有redux等相关内容)
 6. LeoMobileDeveloper的 [总结列表](https://github.com/LeoMobileDeveloper/ReactNativeMaterials)
 7. 一篇该概括比较全的博文 [关于 React Native，您想知道的都在这里了](https://my.oschina.net/osccreate/blog/778348)
@@ -46,6 +45,7 @@
     本书的介绍的git地址在 [这里](https://github.com/nzakas/understandinges6), 
     当然, 你可以看 [中文译文](https://www.gitbook.com/book/oshotokill/understandinges6-simplified-chinese/details) , 感谢译者.
 2. 阮一峰老师推荐的一个语法规范的小册子, 有正反两个实例, 非常值得阅读. [语法简洁之道](https://github.com/ryanmcdermott/clean-code-javascript)
+3. babel 提供的 ES6/ES7 转 ES5 的网站, 不错值得分享. [传送门](http://babeljs.io/repl/) 
 
 ###(四)其他
 
