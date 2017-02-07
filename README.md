@@ -65,3 +65,4 @@
         具体实现详见 [60 FPS ON THE MOBILE WEB](http://engineering.flipboard.com/2015/02/mobile-web/)  
         [中文译文](https://zhuanlan.zhihu.com/p/19967854)
         
+2. [TypeScript 教程](https://github.com/xcatliu/typescript-tutorial)
