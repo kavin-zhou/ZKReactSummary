@@ -1,7 +1,7 @@
 # ZKReactSummary
 总结关于React的知识, 主要是对react文档的一些翻译以及redux, react-native的一些总结
 
-###(一) 教程
+### （一）教程
 
 1. 笔者翻译了一篇关于 [React的思想](translation/README.md) 的文章, 翻译自英文文档.
 2. 刘一奇老师的相关资料
@@ -29,7 +29,7 @@
     * [理解 React，但不理解 Redux，该如何通俗易懂的理解 Redux？](https://www.zhihu.com/question/41312576)
     * [看漫画，学 Redux](https://github.com/jasonslyvia/a-cartoon-intro-to-redux-cn)
 
-###(二) 实例
+### （二）实例
 
 1. 一篇比较好理解的 [TodoListDemo](https://github.com/TongchengQiu/TodoList-as-redux-demo)
 2. 基于 react + react-router + redux + webpack + ES6 + less 的完整项目, 对`React`和`Redux`, `Router`也解释的比较全, 
@@ -37,7 +37,7 @@
 3. 非常好的具有文字展示和评论功能的社区软件, 基于webpack + react + react-router + redux + less + flex.css + ES6 的React版cnode社区, [传送门](https://github.com/lzxb/react-cnode)
 4. 极简的 [Redux实例](./examples/simple-redux)
 
-###(三)语法
+### （三）语法
 
 1. 关于ES6的语法
     * 阮一峰老师的开源书[ES6标准入门(第二版)] (http://es6.ruanyifeng.com/#docs/intro) , 感谢阮大大的开源精神.
@@ -47,7 +47,7 @@
 2. 阮一峰老师推荐的一个语法规范的小册子, 有正反两个实例, 非常值得阅读. [语法简洁之道](https://github.com/ryanmcdermott/clean-code-javascript)
 3. babel 提供的 ES6/ES7 转 ES5 的网站, 不错值得分享. [传送门](http://babeljs.io/repl/) 
 
-###(四)其他
+### （四）其他
 
 1. 关于 Web 前端的性能问题
     * 存在的问题:如下
